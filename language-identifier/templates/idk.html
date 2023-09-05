@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Language Classification</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='/styles.css') }}">
+
+</head>
+
+<body>
+    <img  class="animated-gif" src="{{url_for('static', filename='/cool-cat.gif')}}" />
+    <h1>Language Classification</h1>
+    <p>After data selection and preprocessing I used 22 languages from the original dataset Which Includes following Languages
+
+        ⦁ English ⦁ Arabic ⦁ French ⦁ Hindi ⦁ Urdu ⦁ Portuguese ⦁ Persian ⦁ Pushto ⦁ Spanish ⦁ Korean ⦁ Tamil ⦁ Turkish ⦁ Estonian ⦁ Russian ⦁ Romanian ⦁ Chinese ⦁ Swedish ⦁ Latin ⦁ German ⦁ Dutch ⦁ Japanese ⦁ Thai</p>
+    <p>The model has an accuracy of 95%. It's a soft voting ensemble of Random Forest and Multinomial Naive Bayes.The dataset is relatively small, so it might not be that accurate :) </p>
+    <form action="/" method="POST">
+        <label for="text_input">Enter Text:</label>
+        <input type="text" id="text_input" name="text_input" required>
+        <input type="submit" value="Classify">
+    </form>
+
+    {% if input_text %}
+    <p>Input Text: {{ input_text }}</p>
+    {% endif %}
+
+    {% if predicted_language %}
+    <p>Predicted Language: {{ predicted_language }}</p>
+    {% endif %}
+</body>
+
+</html>
